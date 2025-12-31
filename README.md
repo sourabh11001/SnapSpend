@@ -2,6 +2,10 @@
 
 > **AI-powered receipt scanner & expense tracker that runs fully in your browser — no backend, no install.**
 
+### 🔗 Live Demo
+Your site is live here — try it on mobile too 👇  
+https://sourabh11001.github.io/SnapSpend/
+
 SnapSpend is a **mobile-first expense tracker** that lets you:
 
 - 📷 Scan receipts  
