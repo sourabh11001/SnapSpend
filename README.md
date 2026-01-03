@@ -1,135 +1,205 @@
-# 📸 SnapSpend — Smart Receipt Scanner & Expense Tracker  
+# SnapSpend — AI-Powered Expense Tracker
 
-> **AI-powered receipt scanner & expense tracker that runs fully in your browser — no backend, no install.**
+A **Full-Stack Financial Intelligence Platform** that uses **FastAPI (Python)** and **Gemini 2.5** to convert unstructured receipt images into clean, structured expense data — with both a production-ready backend and a lightweight browser-only demo version.
 
-### 🔗 Live Demo
-Your site is live here — try it on mobile too 👇  
+SnapSpend provides a mobile-friendly UI, privacy-first storage, and AI-driven receipt parsing.
+
+---
+
+> 📝 **Note (Important)**
+>
+> The live demo below is a **Client-Side “Lite” version** using **BYOK (Bring Your Own Key)** so it can run safely in the browser and be hosted on GitHub Pages.
+>
+> The **Full-Stack Production Version (FastAPI backend)** — with secure server-side AI processing — is included in this repository.
+
+🌐 **Live Demo (Lite Version)**  
 https://sourabh11001.github.io/SnapSpend/
 
-SnapSpend is a **mobile-first expense tracker** that lets you:
+---
 
-- 📷 Scan receipts  
-- 🤖 Extract details using **Gemini Vision**  
-- ✍️ Edit / verify expenses  
-- 📊 Track your spending  
-- 📄 Export a **PDF report**  
-- 💾 Store everything **locally (100% private)**  
+## 🔍 Objective
+To build a smart expense tracker that:
 
-And the best part?
+- Scans receipts using AI  
+- Automatically extracts merchant, date, total, and category  
+- Stores expenses locally (privacy-first)  
+- Allows filtering, sorting, and PDF export  
 
-👉 **The entire app is just ONE HTML file.**  
-No backend. No database. No hosting complexity.
+while also offering a **single-file HTML version** that runs entirely in the browser.
 
 ---
 
-## 🚀 Why it’s a Single File (and why that’s impressive)
-
-We intentionally built SnapSpend as a **self-contained single-file app** because:
-
-### ✅ 1️⃣ Runs anywhere — even locally on a phone
-Open the file in your browser. That’s it.  
-Works on Android, iOS, Windows, Mac, Linux.
-
-### 🔒 2️⃣ Privacy-first
-All expenses are stored in **Local Storage**.  
-Your data never leaves your device.
-
-### ⚡ 3️⃣ Super fast
-One file = instant load. No extra requests. No lag.
-
-### 🔧 4️⃣ Zero setup / DevOps
-Upload it, share it, or just double-click to run.
-
-### 🌎 5️⃣ Offline-friendly
-Keeps working without internet  
-(AI receipt scanning needs internet only when used).
-
-> **Single-file architecture = portable, private, and lightning fast.**
+## 🧰 Tools & Technologies Used
+- **Python**, **FastAPI** — backend + AI processing  
+- **JavaScript**, **Tailwind CSS** — responsive UI  
+- **LocalStorage** — privacy-first storage  
+- **jsPDF** — PDF export  
+- **Gemini Vision API** — receipt extraction  
+- **SQLite (optional)** — backend database support  
 
 ---
 
-## ✨ Features
+## 🏗 Architecture
 
-- 📷 AI Receipt Scanning (Gemini Vision)
-- ✍️ Manual entry
-- 🔍 Category filters
-- 🔃 Sort by date or amount
-- 🧾 PDF export with totals
-- 🗑 Delete transactions
-- 🎨 Beautiful mobile-optimized UI
-- 💾 Persistent local storage
+> **Lite Version:** Browser (JS) ↔ Gemini API (Direct)  
+> **Pro Version:** Browser ↔ FastAPI (Python) ↔ Gemini API (Proxy)  
 
----
+The **Pro version** implements a **proxy pattern** to:
 
-## 🛠 Tech Stack
+- secure API keys  
+- sanitize inputs  
+- centralize AI calls on the server  
 
-- HTML + Tailwind CSS  
-- Vanilla JavaScript  
-- Gemini Vision API  
-- jsPDF + AutoTable  
-- LocalStorage  
+This is how production systems are designed.
 
 ---
 
-## 🔑 Setup — Gemini API Key
-
-1️⃣ Get a free API key:  
-https://aistudio.google.com/app/apikey  
-
-2️⃣ Open SnapSpend in your browser  
-3️⃣ Go to **Settings → Paste API Key → Save**
-
-Done. Now you can scan receipts.
+## 📊 Project Workflow
+1️⃣ Upload / scan receipt  
+2️⃣ AI extracts raw text  
+3️⃣ Parsing identifies structured fields  
+4️⃣ User confirms edits  
+5️⃣ Data stored securely  
+6️⃣ Expenses managed, filtered, exported  
 
 ---
 
-## ▶️ How to Run
+## 🌐 Two Versions Included
 
-### Option 1 — Local (phone or PC)
+### 1️⃣ Backend + Frontend (Developer / Pro Mode)
+- FastAPI backend  
+- Secure server-side AI  
+- JSON APIs (ready for mobile apps)  
+- Easy to extend with auth, dashboards, cloud DB, etc.
 
-Just open:
+### 2️⃣ HTML-Only BYOK Version (GitHub Pages)
+- Single standalone HTML file  
+- User pastes API key  
+- Runs fully in the browser  
+- Works offline after first load  
 
-```
-snapspend.html
+---
+
+## 📈 Key Features
+- 📷 AI receipt scanning  
+- 💾 Local private storage  
+- 🔎 Search, sort, filter  
+- 📄 PDF export  
+- ➕ Manual add  
+- 🗑 Delete transactions  
+
+---
+
+## 🚀 Run the Backend Version
+
+### 1️⃣ Create Virtual Environment (Recommended)
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 ```
 
-### Option 2 — GitHub Pages (hosted)
-
-1. Upload the file to a repo  
-2. Enable **GitHub Pages**  
-3. Open the published link  
-
-Still a single file — just easier to share.
-
----
-
-## 📂 Project Structure
-
-```
-.
-└── snapspend.html   # Entire app (UI + logic + storage)
+### 2️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
 ```
 
----
+### 3️⃣ Start Server
+```bash
+uvicorn main:app --reload
+```
 
-## 🧭 Roadmap
-
-- 📊 Insights & charts  
-- 📁 CSV export  
-- 🌍 Multi-currency view  
-- ☁️ Optional cloud sync  
-
----
-
-## ❤️ Why this project matters
-
-SnapSpend shows that powerful AI apps can be:
-
-- lightweight  
-- privacy-respecting  
-- easy to run anywhere  
-- fully transparent & open-source  
-
-Perfect for demos, portfolios, and real-world personal finance tracking.
+Frontend connects automatically to `/scan`.  
+If your server URL changes, update it in the HTML file.
 
 ---
+
+## 🌐 Use the HTML-Only (BYOK) Version
+
+Open:
+
+```
+index.html
+```
+
+Then:
+
+1️⃣ Open Settings  
+2️⃣ Paste Gemini API Key  
+3️⃣ Start scanning 🎉  
+
+➡️ Key stays in the **browser only** — never uploaded.
+
+Or deploy via GitHub Pages:
+
+```
+https://sourabh11001.github.io/SnapSpend/
+```
+
+---
+
+## 📂 Repository Structure
+```
+📁 SnapSpend/
+│
+├── main.py
+├── database.py
+├── models.py
+├── schemas.py
+├── snapspend.html
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 🛡 Git Safety
+Do NOT commit:
+
+```
+.env
+venv/
+__pycache__/
+*.db
+```
+
+---
+
+## ❓ Why Two Versions?
+
+**BYOK Lite Version**  
+Fast, cheap to host, private.
+
+**Full-Stack Pro Version**  
+Secure, scalable, production-ready.
+
+This demonstrates:
+
+- full-stack architecture  
+- secure API design  
+- AI integration  
+- clean UI development  
+
+---
+
+## 💡 Future Improvements
+- Authentication  
+- Cloud database sync  
+- Analytics dashboard  
+- Budget alerts  
+- Monthly reports  
+
+---
+
+## 🙌 Contribution
+PRs and suggestions welcome.
+
+---
+
+## 📜 License
+Open-source — learn, modify, build.
+
+---
+
+⭐ **If you found this helpful, please star the repo!**  
+📂 **GitHub Repository:**  
+https://github.com/sourabh11001/SnapSpend
